@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { poppins } from "./fonts";
 import { Navbar } from "./components";
+import Modal from "./components/modal/Modal";
 
 export const metadata: Metadata = {
   title: "Air bnb",
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={poppins.className}>
         <Navbar/>
+        <Modal isOpen={true}/>
         {children}
         </body>
     </html>
