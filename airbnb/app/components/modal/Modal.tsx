@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import { Modal } from "@/types/components";
-import {IoMdClose} from 'react-icons/io'
+import { IoMdClose } from "react-icons/io";
 import Button from "../Button";
 export default function Modal({
   isOpen,
@@ -76,11 +76,11 @@ export default function Modal({
           md:h-auto'>
         <div
           className={`translate duration-300 h-full  ${
-            showModal ? "translate-y-0" : "translate-y-full"}
+            showModal ? "translate-y-0" : "translate-y-full"
+          }
             ${showModal ? "opacity-100" : "opacity-0"}`}>
-
-                <div 
-                 className="
+          <div
+            className='
                  translate
                  h-full
                  lg:h-auto
@@ -94,47 +94,49 @@ export default function Modal({
                  w-full 
                  bg-white 
                  outline-none 
-                 focus:outline-none">
-                    <div 
-                    className="
+                 focus:outline-none'>
+            <div
+              className='
                     flex 
                     items-center 
                     p-6
                     rounded-t
                     justify-center
                     relative
-                    border-b-[1px]">
-                        <button 
-                        className='p-1
+                    border-b-[1px]'>
+              <button
+                className='p-1
                     border-0 
                     hover:opacity-70
                     transition
                     absolute
                     left-9'
-                    onClick={handleClose}
-                    >
-                        
-
-                          <IoMdClose size='18'/>
-                        </button>
-                        <div className="text-lg font-semibold">
-                            {title}
-                        </div>
-                    </div>
-                    <div className="relative p-6 flex-auto">
-                        {body}
-                    </div>
-                    <div className="flex flex-col gap-2 p-6">
-                        <div className='flex 
+                onClick={handleClose}>
+                <IoMdClose size='18' />
+              </button>
+              <div className='text-lg font-semibold'>{title}</div>
+            </div>
+            <div className='relative p-6 flex-auto'>{body}</div>
+            <div className='flex flex-col gap-2 p-6'>
+              <div
+                className='flex 
                     flex-row 
                     items-center 
                     gap-4 
                     w-full'>
-                        <Button title='j'/>
-                    </div>
-                    </div>
-                 </div>
+                {secondaryAction && secondaryLabel && (
+                  <Button
+                    disabled={disabled}
+                    title={secondaryLabel}
+                    onClick={handleSecondaryAction}
+                    outline
+                  />
+                )}
+                <Button title='j' />
+              </div>
             </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { IconType } from "react-icons/lib";
-
+import React from 'react'
 
 export interface ContainerProps {
     children : React.ReactNode
@@ -27,10 +27,10 @@ export interface Modal{
 
 export interface ButtonProps{
     title: string,
-    onClick: (e: React.MouseEventHandler<HTMLButtonElement>) => void,
+    onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void,
     disabled?: boolean,
     outline?: boolean,
     small?: boolean,
-    icon?: IconType
+    Icon?: IconType
 
 }
