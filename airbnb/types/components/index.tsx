@@ -1,3 +1,4 @@
+import { IconType } from "react-icons/lib";
 
 
 export interface ContainerProps {
@@ -21,4 +22,15 @@ export interface Modal{
     disabled?: boolean
     secondaryAction?: () => void,
     secondaryLabel?: string
+}
+
+
+export interface ButtonProps{
+    title: string,
+    onClick: (e: React.MouseEventHandler<HTMLButtonElement>) => void,
+    disabled?: boolean,
+    outline?: boolean,
+    small?: boolean,
+    icon?: IconType
+
 }

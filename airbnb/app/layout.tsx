@@ -7,6 +7,7 @@ import Modal from "./components/modal/Modal";
 export const metadata: Metadata = {
   title: "Air bnb",
   description: "Air bnb Clone",
+  
 };
 
 export default function RootLayout({
