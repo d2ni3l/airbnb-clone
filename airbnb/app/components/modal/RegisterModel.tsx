@@ -4,16 +4,25 @@ import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
+import Model from './Modal'
 import { 
   FieldValues, 
   SubmitHandler,
   useForm
 } from "react-hook-form";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
-const registerModal = useRegisterModal()
-const [isLoading, setIsLoading] = useState(false);
+import Heading from '../Heading';
+import Input from '../inputs/Input';
 
-const { 
+
+
+
+export default function RegisterModel() {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const registerModal = useRegisterModal()
+ 
+
+  const { 
     register, 
     handleSubmit,
     formState: {
@@ -34,20 +43,60 @@ const onSubmit: SubmitHandler<FieldValues> = (data) => {
     }).finally(() => {setIsLoading(false)})
 
 }
-export default function RegisterModel() {
+
+const bodyContent = (
+  <div className="flex flex-col gap-4">
+    <Heading
+      title="Welcome to Airbnb"
+      subtitle="Create an account!"
+      center
+    />
+    <Input
+      id="email"
+      label="Email"
+      disabled={isLoading}
+      register={register}
+      errors={errors}
+      required
+    />
+    <Input
+      id="name"
+      label="Name"
+      disabled={isLoading}
+      register={register}
+      errors={errors}
+      required
+    />
+    <Input
+      id="password"
+      label="Password"
+      type="password"
+      disabled={isLoading}
+      register={register}
+      errors={errors}
+      required
+    />
+  </div>
+)
+
+  
   return (
     <div>
 
-        <Model
-          disabled={isLoading}
-          isOpen={registerModal.isOpen}
-          title="Register"
-          actionLabel="Continue"
-          onClose={registerModal.onClose}
-          onSubmit={handleSubmit(onSubmit)}
-          body={bodyContent}
-          footer={footerContent}
-        />
+       {
+         registerModal.isOpen && (
+          <Model
+         disabled={isLoading}
+         isOpen={registerModal.isOpen}
+         title="Register"
+         actionLabel="Continue"
+         onClose={registerModal.onClose}
+         onSubmit={handleSubmit(onSubmit)}
+         body={bodyContent}
+    
+       />
+         )
+       }
 
     </div>
   )

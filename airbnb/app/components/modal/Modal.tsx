@@ -48,6 +48,7 @@ export default function Modal({
       return null;
     }
   }, [disabled, secondaryAction]);
+  
   return (
     <div
       className='

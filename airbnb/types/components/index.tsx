@@ -34,3 +34,9 @@ export interface ButtonProps{
     Icon?: IconType
 
 }
+
+export interface HeadingProps {
+    title: string;
+    subtitle?: string;
+    center?: boolean;
+  }
