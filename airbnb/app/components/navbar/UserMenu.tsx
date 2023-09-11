@@ -1,13 +1,30 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
- 
+
 export default function UserMenu() {
-  const registerModal = useRegisterModal()
+  const registerModal = useRegisterModal();
   const [isOpen, setOpen] = useState(false);
+  const menuRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    
+    const toggleOff = (e : any) => {
+      if (!menuRef.current?.contains(e.target)){
+        setOpen(false)
+        
+        
+      }
+
+    }
+
+    document.addEventListener('mousedown', toggleOff)
+  });
+ 
+
   return (
     <div className='relative'>
       <div className='flex flex-row items-center gap-3'>
@@ -27,9 +44,9 @@ export default function UserMenu() {
           </div>
         </div>
       </div>
-      
+
       {isOpen && (
-        <div className='absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm'>
+        <div ref={menuRef} className='absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm'>
           <div className='flex flex-col cursor-pointer'>
             <>
               <MenuItem onClick={() => {}} label='Login' />
