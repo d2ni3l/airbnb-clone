@@ -15,8 +15,7 @@ export default function UserMenu() {
     const toggleOff = (e : any) => {
       if (!menuRef.current?.contains(e.target)){
         setOpen(false)
-        
-        
+
       }
 
     }

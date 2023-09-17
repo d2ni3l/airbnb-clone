@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { poppins } from "./fonts";
 import { Navbar } from "./components";
 import RegisterModel from "./components/modal/RegisterModel";
+import ToasterProvider from "./providers/ToasterProvider";
 
 export const metadata: Metadata = {
   title: "Air bnb",
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={poppins.className}>
         <Navbar />
+        <ToasterProvider/>
         <RegisterModel/>
         {children}
       </body>

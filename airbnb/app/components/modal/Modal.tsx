@@ -133,11 +133,15 @@ export default function Modal({
                     outline
                   />
                 )}
-                <Button title='j' />
+                <Button title={actionLabel}  disabled={disabled}  onClick={onSubmit} />
               </div>
+              {footer}
             </div>
+           
           </div>
         </div>
+
+      
       </div>
     </div>
   );
