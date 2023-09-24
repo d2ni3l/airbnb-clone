@@ -3,7 +3,7 @@ import React from 'react'
 import axios from "axios";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
-import { useCallback, useState } from "react";
+import {  useState } from "react";
 import {toast} from 'react-hot-toast'
 import Model from './Modal'
 import { 
@@ -41,7 +41,7 @@ const onSubmit: SubmitHandler<FieldValues> = (data) => {
   setIsLoading(true)
     axios.post('/api/register', data).then(() => {
         registerModal.onClose
-    }).catch((error) => {
+    }).catch(() => {
        toast.error('Some thing went wrong')
     }).finally(() => {setIsLoading(false)})
 
