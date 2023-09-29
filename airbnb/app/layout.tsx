@@ -4,6 +4,7 @@ import { poppins } from "./fonts";
 import { Navbar } from "./components";
 import RegisterModel from "./components/modal/RegisterModel";
 import ToasterProvider from "./providers/ToasterProvider";
+import LoginModal from "./components/modal/LoginModel";
 
 export const metadata: Metadata = {
   title: "Air bnb",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <Navbar />
         <ToasterProvider/>
         <RegisterModel/>
+        <LoginModal/>
         {children}
       </body>
     </html>
