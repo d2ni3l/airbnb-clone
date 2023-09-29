@@ -45,7 +45,7 @@ const LoginModal = () => {
 
     signIn('credentials', {
       ...data,
-      redirect: false
+      redirect: false,
 
 
   }).then((callback) => {
@@ -55,6 +55,9 @@ const LoginModal = () => {
       router.refresh()
       loginModal.onClose()
 
+    }
+    if(callback?.error){
+      toast.error(callback.error)
     }
   })
 

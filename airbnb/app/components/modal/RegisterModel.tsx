@@ -40,10 +40,12 @@ export default function RegisterModel() {
 const onSubmit: SubmitHandler<FieldValues> = (data) => {
   setIsLoading(true)
     axios.post('/api/register', data).then(() => {
-        registerModal.onClose
+      toast.success('signed up')
+      registerModal.onClose()
+        
     }).catch(() => {
-       toast.error('Some thing went wrong')
-    }).finally(() => {setIsLoading(false)})
+       toast.error('Something went wrong')
+    }).finally(() => {setIsLoading(false); registerModal.onClose()})
 
 }
 
