@@ -1,5 +1,6 @@
 import { IconType } from "react-icons/lib";
 import React from 'react'
+import { User } from "@prisma/client";
 
 export interface ContainerProps {
     children : React.ReactNode
@@ -40,3 +41,11 @@ export interface HeadingProps {
     subtitle?: string;
     center?: boolean;
   }
+
+export interface NavbarProps{
+    currentUser?: User | null
+}
+
+export interface UserMenuProps{
+    currentUser?: User | null
+}

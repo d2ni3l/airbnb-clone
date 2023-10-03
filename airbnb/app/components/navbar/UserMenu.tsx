@@ -5,26 +5,24 @@ import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { UserMenuProps } from "@/types/components";
+import { signOut } from "next-auth/react";
 
-export default function UserMenu() {
+export default function UserMenu({currentUser} : UserMenuProps) {
   const registerModal = useRegisterModal();
   const [isOpen, setOpen] = useState(false);
-  const loginModal = useLoginModal()
+  const loginModal = useLoginModal();
   const menuRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    
-    const toggleOff = (e : any) => {
-      if (!menuRef.current?.contains(e.target)){
-        setOpen(false)
-
+    const toggleOff = (e: any) => {
+      if (!menuRef.current?.contains(e.target)) {
+        setOpen(false);
       }
+    };
 
-    }
-
-    document.addEventListener('mousedown', toggleOff)
+    document.addEventListener("mousedown", toggleOff);
   });
- 
 
   return (
     <div className='relative'>
@@ -47,12 +45,51 @@ export default function UserMenu() {
       </div>
 
       {isOpen && (
-        <div ref={menuRef} className='absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm'>
+        <div
+          ref={menuRef}
+          className='absolute rounded-xl shadow-md w-[40vw] md:w-3/4 bg-white overflow-hidden right-0 top-12 text-sm'>
           <div className='flex flex-col cursor-pointer'>
-            <>
-              <MenuItem onClick={loginModal.onOpen} label='Login' />
-              <MenuItem onClick={registerModal.onOpen} label='Sign Up' />
-            </>
+          {currentUser ? (
+              <>
+                <MenuItem 
+                  label="My trips" 
+                  onClick={() => {}}
+                />
+                <MenuItem 
+                  label="My favorites" 
+                  onClick={() => {}}
+                />
+                <MenuItem 
+                  label="My reservations" 
+                  onClick={() => {}}
+                />
+                <MenuItem 
+                  label="My properties" 
+                  onClick={() => {}}
+                />
+                <MenuItem 
+                  label="Airbnb your home" 
+                  onClick={() => {}}
+                />
+                <hr />
+                <MenuItem 
+                  label="Logout" 
+                  onClick={() => signOut()}
+                />
+              </>
+            ) : (
+              <>
+                <MenuItem 
+                  label="Login" 
+                  onClick={loginModal.onOpen}
+                />
+                <MenuItem 
+                  label="Sign up" 
+                  onClick={registerModal.onOpen}
+                />
+              </>
+            )}
+           
           </div>
         </div>
       )}
