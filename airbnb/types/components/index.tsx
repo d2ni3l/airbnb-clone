@@ -43,9 +43,20 @@ export interface HeadingProps {
   }
 
 export interface NavbarProps{
-    currentUser?: User | null
+    currentUser?: safeUser | null
 }
 
 export interface UserMenuProps{
-    currentUser?: User | null
+    currentUser?: safeUser | null
+}
+
+ type safeUser = Omit<User, 'createdAt' | 'updatedAt' | 'emailVerified'> &{
+    createdAt: string
+    updatedAt: string
+    emailVerified: string | null
+}
+
+export interface AvatarProps {
+    src? : string | undefined | null
+
 }

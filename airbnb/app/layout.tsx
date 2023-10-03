@@ -5,7 +5,7 @@ import { Navbar } from "./components";
 import RegisterModel from "./components/modal/RegisterModel";
 import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modal/LoginModel";
-import getCurrentUser from "./actions/GetCurrentUser";
+import getCurrentUser from "./actions/getCurrentUser";
 
 export const metadata: Metadata = {
   title: "Air bnb",
@@ -18,6 +18,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const currentUser = await getCurrentUser()
+  console.log(currentUser)
   return (
     <html lang='en'>
       <body className={poppins.className}>

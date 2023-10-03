@@ -15,6 +15,7 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import Heading from '../Heading';
 import Input from '../inputs/Input';
 import Button from '../Button';
+import { signIn } from 'next-auth/react';
 
 
 
@@ -98,7 +99,7 @@ const footerContent = (
       outline 
       title="Continue with Github"
       Icon={AiFillGithub}
-      // onClick={() => signIn('github')}
+    onClick={() => signIn('github')}
     />
     <div 
       className="
