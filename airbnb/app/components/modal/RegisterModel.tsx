@@ -93,14 +93,9 @@ const footerContent = (
       outline 
       title="Continue with Google"
       Icon={FcGoogle}
-      // onClick={() => signIn('google')} 
+      onClick={() => signIn('google')} 
     />
-    <Button 
-      outline 
-      title="Continue with Github"
-      Icon={AiFillGithub}
-    onClick={() => signIn('github')}
-    />
+    
     <div 
       className="
         text-neutral-500 
