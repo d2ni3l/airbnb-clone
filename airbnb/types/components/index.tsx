@@ -1,5 +1,5 @@
 import { IconType } from "react-icons/lib";
-import React from 'react'
+import React, { ReactChild } from 'react'
 import { User } from "@prisma/client";
 
 export interface ContainerProps {
@@ -59,4 +59,11 @@ export interface UserMenuProps{
 export interface AvatarProps {
     src? : string | undefined | null
 
+}
+
+export interface CategoryBoxProps{
+    label: string
+    description: string
+    icon: IconType
+    selected: boolean 
 }

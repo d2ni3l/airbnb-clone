@@ -7,6 +7,7 @@ import Logo from './Logo'
 import Search from './Search'
 import UserMenu from './UserMenu'
 import { NavbarProps } from '@/types/components'
+import Categories from './Categories'
 
 export default function Navbar({currentUser} : NavbarProps) {
   return (
@@ -20,6 +21,7 @@ export default function Navbar({currentUser} : NavbarProps) {
       </div>
      </Container>
      </div>
+     <Categories/>
 
      
 
