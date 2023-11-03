@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import Container from '../Container'
 import { TbBeach, TbMountain, TbPool } from 'react-icons/tb';
@@ -7,7 +9,7 @@ import {
   GiCactus, 
   GiCastle, 
   GiCaveEntrance, 
-  GiForestCamp, 
+  GiForestCamp,
   GiIsland,
   GiWindmill
 } from 'react-icons/gi';
@@ -16,11 +18,18 @@ import { BsSnow } from 'react-icons/bs';
 import { IoDiamond } from 'react-icons/io5';
 import { MdOutlineVilla } from 'react-icons/md';
 import CategoryBox from '../CategoryBox';
+import { usePathname, useSearchParams } from 'next/navigation';
 
 export default function Categories() {
-
+  const params = useSearchParams();
+  const category = params?.get('category')
+  const pathName = usePathname()
   
+  const isMainPage = pathName === '/'
 
+  if (!isMainPage){
+    return null
+  }
   return (
     <Container>
       <div
@@ -30,8 +39,7 @@ export default function Categories() {
           flex-row 
           items-center 
           justify-between
-          overflow-x-auto
-        "
+          overflow-x-auto"
       >
         {categories.map((item) => {
           return (
@@ -43,7 +51,6 @@ export default function Categories() {
             />
           )
         })}
-
       </div>
       </Container>
   )

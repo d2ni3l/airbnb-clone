@@ -65,5 +65,5 @@ export interface CategoryBoxProps{
     label: string
     description: string
     icon: IconType
-    selected: boolean 
+    selected?: boolean 
 }

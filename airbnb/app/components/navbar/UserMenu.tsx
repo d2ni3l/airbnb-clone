@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
@@ -7,7 +7,6 @@ import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { UserMenuProps } from "@/types/components";
 import { signOut } from "next-auth/react";
-
 export default function UserMenu({currentUser} : UserMenuProps) {
   const registerModal = useRegisterModal();
   const [isOpen, setOpen] = useState(false);
@@ -23,6 +22,14 @@ export default function UserMenu({currentUser} : UserMenuProps) {
 
     document.addEventListener("mousedown", toggleOff);
   });
+
+  // const onRent = useCallback(() => {
+  //   if (!currentUser) {
+  //     return loginModal.onOpen();
+  //   }
+
+  //   rentModal.onOpen();
+  // }, [loginModal, rentModal, currentUser]);
 
   return (
     <div className='relative'>

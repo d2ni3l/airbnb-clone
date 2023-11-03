@@ -1,11 +1,14 @@
+'use client'
+
 import { CategoryBoxProps } from '@/types/components'
 import {useRouter, useSearchParams} from 'next/navigation'
 import React, { useCallback } from 'react'
 import qs from 'query-string'
 export default function 
 ({label, description, icon:Icon, selected }: CategoryBoxProps) {
-    const router = useRouter()
-    const params = useSearchParams()
+    const router = useRouter();
+    const params = useSearchParams();
+
 
     const handleClick  = useCallback(() => {
       let currentQuery =  {}
@@ -27,7 +30,7 @@ export default function
           query: updatedQuery
         }, {skipNull: true})
 
-      router.push(url)
+      router.push(url) // this sets the url
     }, [label, params, router])
 
   return (

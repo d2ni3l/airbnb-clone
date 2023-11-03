@@ -12,6 +12,7 @@ export default function Logo() {
     <div>
         
         <Image
+        onClick={() => {router.push('/')}}
         src='/images/logo.png'
         alt='logo'
         height={100}
