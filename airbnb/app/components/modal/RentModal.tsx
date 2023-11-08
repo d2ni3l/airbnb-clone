@@ -8,7 +8,8 @@ import { categories } from '../navbar/Categories'
 import CategoryInput from '../inputs/CategoryInput'
 import { FieldValues, useForm } from 'react-hook-form'
 import CountrySelect from '../inputs/CountrySelect'
-import Map from '../Map'
+import dynamic from 'next/dynamic'
+
 enum STEPS {
   CATEGORY = 0,
   LOCATION = 1,
@@ -19,6 +20,10 @@ enum STEPS {
 }
 
 export default function RentModal() {
+
+     
+
+  
   const [step, setSteps] = useState(STEPS.CATEGORY)
 
     const rentModal = useRentModal()
@@ -46,6 +51,14 @@ export default function RentModal() {
       }
     });
 
+    const category = watch('category');
+    const location = watch('location')
+
+    const Map = useMemo(() => dynamic(() => import('../Map'), {
+      ssr: false
+     
+    })  , [location]) 
+
     const setCustomValue = (id: string, value: any) => {
       setValue(id, value, {
         shouldDirty: true,
@@ -53,8 +66,7 @@ export default function RentModal() {
         shouldValidate: true
       })
     }   
-    const category = watch('category');
-    const location = watch('location')
+ 
 
 
     const onBack = () => {
@@ -123,7 +135,7 @@ export default function RentModal() {
             onChange={(value) => setCustomValue('location', value)} 
           />
 
-          <Map/>
+          <Map center={location?.latlng}/>
         
         </div>
       );

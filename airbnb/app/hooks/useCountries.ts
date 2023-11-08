@@ -6,9 +6,10 @@ const formattedCountries  = countries.map((country) => ({
     value: country.cca2,
     label: country.name.common,
     flag: country.flag,
-    region: country.region
+    region: country.region,
+    latlng: country.latlng,
 }))
-import React from 'react'
+
 
 const useCountries = () => {
     const getAll = () => formattedCountries

@@ -75,3 +75,7 @@ export interface CategoryInputProps{
     onClick: (value : string) => void
 }
 
+export interface MapsProps{
+    center?: number[]
+
+}
