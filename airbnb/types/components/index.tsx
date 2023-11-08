@@ -67,3 +67,11 @@ export interface CategoryBoxProps{
     icon: IconType
     selected?: boolean 
 }
+
+export interface CategoryInputProps{
+    selected?: boolean
+    label: string
+    icon: IconType
+    onClick: (value : string) => void
+}
+
