@@ -79,3 +79,10 @@ export interface MapsProps{
     center?: number[]
 
 }
+
+ export interface CounterProps{
+    title: string
+    subtitle: string
+    value: number
+    onChange : (value : number) => void
+ }
