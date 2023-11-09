@@ -86,3 +86,10 @@ export interface MapsProps{
     value: number
     onChange : (value : number) => void
  }
+
+
+ export interface ImageUploadProps{
+    onChange: (value: string) => void
+    value: string
+
+}
