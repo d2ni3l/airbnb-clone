@@ -185,10 +185,10 @@ if (step === STEPS.IMAGES) {
         title="Add a photo of your place"
         subtitle="Show guests what your place looks like!"
       />
-      <ImageUpload
+       <ImageUpload
          onChange={(value) => setCustomValue('imageSrc', value)}
          value={imageSrc}
-      />
+      /> 
       
     </div>
   )
