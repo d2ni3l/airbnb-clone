@@ -1,10 +1,13 @@
+import getListings from "./actions/getListings";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
+import ListingCard from "./components/listings/ListingCard";
+import getCurrentUser from "@/app/actions/getCurrentUser";
+export default async function Home() {
+  const listings = await getListings()
+  const currentUser = await getCurrentUser();
 
-export default function Home() {
-  const isEmpty = true;
-
-  if(isEmpty){
+  if(listings.length === 0){
     return(
       <EmptyState showReset/>
     )
@@ -23,7 +26,16 @@ export default function Home() {
             2xl:grid-cols-6
             gap-8
           ">
-            My future listings
+            
+               {listings.map((listing: any) => (
+                <ListingCard
+                  currentUser={currentUser}
+                  key={listing.id}
+                  data={listing}
+                /> 
+               
+              ))}
+            
           </div>
 
       </Container>

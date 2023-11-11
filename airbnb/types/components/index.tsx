@@ -1,6 +1,6 @@
 import { IconType } from "react-icons/lib";
 import React, { ReactChild } from 'react'
-import { User } from "@prisma/client";
+import { Listing, Reservation, User } from "@prisma/client";
 
 export interface ContainerProps {
     children : React.ReactNode
@@ -98,4 +98,20 @@ export interface MapsProps{
     title?: string
     subtitle?: string
     showReset: boolean
+ }
+
+ export interface ListingCardProps{
+    data: Listing
+    currentUser?: safeUser | null
+    reservation?: Reservation
+    disabled?: boolean
+    actionId?: string
+    actionLabel?: string
+    onAction?: (id: string) => void
+ }
+
+
+ export interface HeartButtonProps{
+    currentUser?: safeUser | null
+    listingId: string 
  }
