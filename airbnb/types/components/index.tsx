@@ -50,7 +50,7 @@ export interface UserMenuProps{
     currentUser?: safeUser | null
 }
 
- type safeUser = Omit<User, 'createdAt' | 'updatedAt' | 'emailVerified'> &{
+ export type safeUser = Omit<User, 'createdAt' | 'updatedAt' | 'emailVerified'> &{
     createdAt: string
     updatedAt: string
     emailVerified: string | null
@@ -115,3 +115,12 @@ export interface MapsProps{
     currentUser?: safeUser | null
     listingId: string 
  }
+
+ export interface IParams{
+    listingId: string
+ }
+
+ export interface IUseFavoriteProps{
+    listingId: string
+    currentUser?: safeUser | null
+}
