@@ -92,4 +92,10 @@ export interface MapsProps{
     onChange: (value: string) => void
     value: string
 
-}
+ }
+
+ export interface EmptyStateProps{
+    title?: string
+    subtitle?: string
+    showReset: boolean
+ }
