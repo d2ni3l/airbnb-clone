@@ -1,5 +1,5 @@
 import { IconType } from "react-icons/lib";
-import React, { ReactChild } from 'react'
+import React from 'react'
 import { Listing, Reservation, User } from "@prisma/client";
 
 export interface ContainerProps {
@@ -101,7 +101,7 @@ export interface MapsProps{
  }
 
  export interface ListingCardProps{
-    data: Listing
+    data: safeListing
     currentUser?: safeUser | null
     reservation?: Reservation
     disabled?: boolean
@@ -123,4 +123,11 @@ export interface MapsProps{
  export interface IUseFavoriteProps{
     listingId: string
     currentUser?: safeUser | null
+}
+
+export type safeListing = Omit<
+Listing,
+'createdAt'
+> &{
+    createdAt: string;
 }
