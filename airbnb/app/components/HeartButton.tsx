@@ -1,14 +1,16 @@
 import { HeartButtonProps } from '@/types/components'
 import React from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
+import useFavorite from '../hooks/useFavorite';
 
 export default function HeartButton({currentUser, listingId} : HeartButtonProps) {
 
-    const toggleFavorite = () => {
+  const { hasFavorited, toggleFavorite } = useFavorite({
+    listingId,
+    currentUser
+  });
 
-    }
 
-    const hasFavorited = true
     return (
         <div 
           onClick={toggleFavorite}

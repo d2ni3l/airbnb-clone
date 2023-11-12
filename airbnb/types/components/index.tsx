@@ -117,7 +117,7 @@ export interface MapsProps{
  }
 
  export interface IParams{
-    listingId: string
+    listingId?: string
  }
 
  export interface IUseFavoriteProps{
