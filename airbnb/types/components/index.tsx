@@ -131,3 +131,7 @@ Listing,
 > &{
     createdAt: string;
 }
+
+export interface GetListingByIdProps{
+ listingid?: string
+}
