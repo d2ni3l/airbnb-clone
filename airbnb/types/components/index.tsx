@@ -137,11 +137,13 @@ export interface GetListingByIdProps{
 }
 
 export interface ListingClientProps{
-    reservation?: Reservation[]
-    listing: safeListing | null & {
-        user: safeUser;
-      };
-currentUser?: safeUser | null
+   
+
+reservations?: Reservation[];
+listing: safeListing & {
+  user: safeUser;
+};
+currentUser?: safeUser | null;
 }
 
 
@@ -152,4 +154,26 @@ export interface ListingHeadProps{
     id: string;
     currentUser?: safeUser | null
   
+}
+
+export interface ListingInfoProps{
+    user: safeUser,
+    description: string;
+    guestCount: number;
+    roomCount: number;
+    bathroomCount: number;
+    category: {
+      icon: IconType,
+      label: string;
+      description: string;
+    } | undefined
+    locationValue: string;
+}
+
+
+export interface ListingCategoryProps{
+    icon: IconType
+    label: string
+    description: string
+
 }
