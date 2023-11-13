@@ -97,7 +97,7 @@ export interface MapsProps{
  export interface EmptyStateProps{
     title?: string
     subtitle?: string
-    showReset: boolean
+    showReset?: boolean
  }
 
  export interface ListingCardProps{
@@ -134,4 +134,22 @@ Listing,
 
 export interface GetListingByIdProps{
  listingid?: string
+}
+
+export interface ListingClientProps{
+    reservation?: Reservation[]
+    listing: safeListing | null & {
+        user: safeUser;
+      };
+currentUser?: safeUser | null
+}
+
+
+export interface ListingHeadProps{
+    title: string;
+    locationValue: string;
+    imageSrc: string;
+    id: string;
+    currentUser?: safeUser | null
+  
 }
