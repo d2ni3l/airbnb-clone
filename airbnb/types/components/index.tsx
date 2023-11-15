@@ -1,5 +1,6 @@
 import { IconType } from "react-icons/lib";
 import React from 'react'
+import {Range, RangeKeyDict} from 'react-date-range'
 import { Listing, Reservation, User } from "@prisma/client";
 
 export interface ContainerProps {
@@ -175,5 +176,22 @@ export interface ListingCategoryProps{
     icon: IconType
     label: string
     description: string
+
+}
+
+export interface ListingReservationProps{
+    price: number;
+    dateRange: Range,
+    totalPrice: number;
+    onChangeDate: (value: Range) => void;
+    onSubmit: () => void;
+    disabled?: boolean;
+    disabledDates: Date[];
+}
+
+export interface CalendarProps{
+    value: Range
+    onChange: (value: RangeKeyDict) => void
+    disabledDates?:Date[]
 
 }
