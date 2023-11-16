@@ -140,13 +140,23 @@ export interface GetListingByIdProps{
 export interface ListingClientProps{
    
 
-reservations?: Reservation[];
-listing: safeListing & {
+reservations?: safeReservation[];
+listing: safeListing& {
   user: safeUser;
-};
+} 
 currentUser?: safeUser | null;
 }
 
+
+export type safeReservation= Omit<
+Reservation,
+'createdAt' | 'startDate' | 'emailVerified' | 'listing'
+> &{
+    createdAt: string
+    startDateDate: string
+    endDate: string
+    listing: safeListing
+}
 
 export interface ListingHeadProps{
     title: string;
