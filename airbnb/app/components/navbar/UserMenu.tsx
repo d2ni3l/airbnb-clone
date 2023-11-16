@@ -8,6 +8,7 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 import { UserMenuProps } from "@/types/components";
 import { signOut } from "next-auth/react";
 import useRentModal from "@/app/hooks/useRentModal";
+import { useRouter } from "next/navigation";
 export default function UserMenu({currentUser} : UserMenuProps) {
   const registerModal = useRegisterModal();
   const [isOpen, setOpen] = useState(false);
@@ -33,6 +34,7 @@ export default function UserMenu({currentUser} : UserMenuProps) {
 
     rentModal.onOpen();
   }, [loginModal, rentModal, currentUser]);
+  const router = useRouter()
 
   return (
     <div className='relative'>
@@ -63,7 +65,7 @@ export default function UserMenu({currentUser} : UserMenuProps) {
               <>
                 <MenuItem 
                   label="My trips" 
-                  onClick={() => {}}
+                  onClick={() => {router.push('/trips')}}
                 />
                 <MenuItem 
                   label="My favorites" 
