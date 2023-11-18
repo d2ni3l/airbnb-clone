@@ -84,7 +84,7 @@ export default function ListingCard({
         absolute
         top-3
         right-3
-      '> 
+      '>
             <HeartButton listingId={data.id} currentUser={currentUser} />
           </div>
         </div>

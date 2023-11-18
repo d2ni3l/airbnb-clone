@@ -104,7 +104,7 @@ export interface MapsProps{
  export interface ListingCardProps{
     data: safeListing
     currentUser?: safeUser | null
-    reservation?: Reservation
+    reservation?: safeReservation
     disabled?: boolean
     actionId?: string
     actionLabel?: string
@@ -151,9 +151,9 @@ currentUser?: safeUser | null;
 export type safeReservation= Omit<
 Reservation,
 'createdAt' | 'startDate' | 'emailVerified' | 'listing'
-> &{
+> & {
     createdAt: string
-    startDateDate: string
+    startDate: string
     endDate: string
     listing: safeListing
 }
@@ -204,4 +204,9 @@ export interface CalendarProps{
     onChange: (value: RangeKeyDict) => void
     disabledDates?:Date[]
 
+}
+
+export interface TripsClientProps{
+    reservations: safeReservation[];
+    currentUser?: safeUser | null,
 }
