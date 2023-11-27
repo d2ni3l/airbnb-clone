@@ -210,3 +210,5 @@ export interface TripsClientProps{
     reservations: safeReservation[];
     currentUser?: safeUser | null,
 }
+
+
