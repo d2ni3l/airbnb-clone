@@ -69,7 +69,7 @@ export default function UserMenu({currentUser} : UserMenuProps) {
                 />
                 <MenuItem 
                   label="My favorites" 
-                  onClick={() => {}}
+                  onClick={() => {router.push('/favorites')}}
                 />
                 <MenuItem 
                   label="My reservations" 
@@ -77,7 +77,7 @@ export default function UserMenu({currentUser} : UserMenuProps) {
                 />
                 <MenuItem 
                   label="My properties" 
-                  onClick={() => {}}
+                  onClick={() => {router.push('/properties')}}
                 />
                 <MenuItem 
                   label="Airbnb your home" 
