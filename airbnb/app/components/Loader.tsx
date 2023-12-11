@@ -9,7 +9,7 @@ export default function Loader() {
     className='h-[70vh flex flex-col justify-center items-center'>
         <ClimbingBoxLoader
 
-        size={100}
+        size={50}
         color='red'
         />
 
