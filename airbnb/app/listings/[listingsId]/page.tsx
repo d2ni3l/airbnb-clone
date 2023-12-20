@@ -11,18 +11,22 @@ interface IParams {
 
 export default async function page({ params }: { params: IParams }) {
   const listing = await getListingById(params);
-  const reservations = await getReservations(params)
-  const currentUser = await getCurrentUser()
+  const reservations = await getReservations(params);
+  const currentUser = await getCurrentUser();
 
   if (!listing) {
     return <EmptyState />;
   }
+  
 
-  return <div>
-    <ListingClient currentUser={currentUser} listing={listing} reservations={reservations}/>
-  </div>;
+  console.log(listing)
+  return (
+    <div>
+      <ListingClient
+        currentUser={currentUser}
+        listing={listing}
+        reservations={reservations}
+      />
+    </div>
+  );
 }
-
-
-
-

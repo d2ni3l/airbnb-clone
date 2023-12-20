@@ -1,6 +1,5 @@
 "use client";
 
-import { ListingClientProps } from "@/types/components";
 import React, { useCallback, useEffect, useState } from "react";
 import { useMemo } from "react";
 import { categories } from "@/app/components/navbar/Categories";
@@ -9,6 +8,8 @@ import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { useRouter } from "next/navigation";
+
+
 import {
   differenceInCalendarDays,
   differenceInDays,
@@ -18,7 +19,16 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import ListingReservation from "@/app/components/listings/ListingReservation";
 import { Range } from "react-date-range";
+import { safeListing, safeReservation, safeUser } from "@/types/components";
 
+
+interface ListingClientProps {
+  reservations?: safeReservation[];
+  listing: safeListing & {
+    user: safeUser;
+  };
+  currentUser?: safeUser | null;
+}
 const initialDateRange = {
   startDate: new Date(),
   endDate: new Date(),
@@ -29,7 +39,7 @@ export default function ListingClient({
   listing,
   reservations = [],
 }: ListingClientProps) {
-  const loginModal = useLoginModal();
+  const loginModal = useLoginModal();   
 
   const router = useRouter();
   const disabledDates = useMemo(() => {

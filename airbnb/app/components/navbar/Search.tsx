@@ -11,7 +11,7 @@ const Search = () => {
 
   const { getByValue } = useCountries();
 
-  const locationValue = params?.get("locationVaue");
+  const locationValue = params?.get("locationValue");
   const startDate = params?.get("startDate");
   const endDate = params?.get("endDate");
   const guestCount = params?.get("guestCount");
@@ -22,7 +22,11 @@ const Search = () => {
     }
 
     return "Anywhere";
+
   }, [getByValue, locationValue]);
+
+
+
 
   const durationLabel = useMemo(() => {
     if (startDate && endDate) {
