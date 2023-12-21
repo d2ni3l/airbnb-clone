@@ -7,6 +7,8 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 interface HomeProps{
   searchParams: IListingsParams
 }
+
+export const dynamic = 'force-dynamic'
 export default async function Home({searchParams}: HomeProps) {
   const listings = await getListings(searchParams)
   const currentUser = await getCurrentUser();
