@@ -21,7 +21,7 @@ try{
     })
 
     if(!listing){
-        return console.log('listing dose not exits')
+        return console.log('listing does not exits')
     }
 
     return{

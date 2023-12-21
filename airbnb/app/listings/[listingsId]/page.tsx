@@ -19,7 +19,7 @@ export default async function page({ params }: { params: IParams }) {
   }
   
 
-  console.log(listing)
+
   return (
     <div>
       <ListingClient

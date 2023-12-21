@@ -24,9 +24,7 @@ import { safeListing, safeReservation, safeUser } from "@/types/components";
 
 interface ListingClientProps {
   reservations?: safeReservation[];
-  listing: safeListing & {
-    user: safeUser;
-  };
+  listing:any
   currentUser?: safeUser | null;
 }
 const initialDateRange = {
