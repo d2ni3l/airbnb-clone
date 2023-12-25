@@ -1,8 +1,8 @@
 "use client";
 
 import useCountries from "@/app/hooks/useCountries";
-import React from "react";
-import Select from "react-select";
+import React, { ReactNode } from "react";
+import Select, { Props } from "react-select";
 
 export type CountrySelectValue = {
   flag: string;
@@ -57,3 +57,5 @@ export default function CountrySelect({ value, onChange }: CountrySelectProps) {
     </div>
   );
 }
+
+
