@@ -23,6 +23,8 @@ try{
   if (!currentUser) {
     return null;
   }
+
+  // changing the return value type for listed value's cuz of date object can't be passed to client components
   return {
     ...currentUser,
     createdAt: currentUser.createdAt.toISOString(),

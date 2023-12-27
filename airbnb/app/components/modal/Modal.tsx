@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { Modal } from "@/types/components";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button";
+
+
+
 export default function Modal({
   isOpen,
   onClose,
@@ -48,7 +51,7 @@ export default function Modal({
       return null;
     }
   }, [disabled, secondaryAction]);
-  
+
   return (
     <div
       className='
@@ -133,15 +136,16 @@ export default function Modal({
                     outline
                   />
                 )}
-                <Button title={actionLabel}  disabled={disabled}  onClick={onSubmit} />
+                <Button
+                  title={actionLabel}
+                  disabled={disabled}
+                  onClick={onSubmit}
+                />
               </div>
               {footer}
             </div>
-           
           </div>
         </div>
-
-      
       </div>
     </div>
   );

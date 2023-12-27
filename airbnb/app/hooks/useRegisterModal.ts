@@ -7,10 +7,16 @@ interface RegisterModalStore {
 }
 
 const useRegisterModal = create<RegisterModalStore>((set) => ({
+  // value to change
   isOpen: false,
+
+  // set function to change value 
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false })
 }));
 
 
 export default useRegisterModal;
+
+
+
