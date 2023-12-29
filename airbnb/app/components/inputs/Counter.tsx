@@ -12,7 +12,7 @@ export default function Counter({
 
    
     const onAdd = useCallback(() => {
-        onChange( value + 1)
+        onChange(value + 1)
     }, [onChange, value])
 
     const onReduce = useCallback(() =>  {
